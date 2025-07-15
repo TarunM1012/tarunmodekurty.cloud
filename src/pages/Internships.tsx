@@ -43,15 +43,15 @@ const Internships = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-theme-bg-start via-theme-bg-via to-theme-bg-end">
       <Navigation />
       
       <div className="pt-24 px-4 max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
-            My <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Internships</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-theme-text-primary mb-6 animate-fade-in">
+            My <span className="bg-gradient-to-r from-theme-primary-start to-theme-primary-end bg-clip-text text-transparent">Internships</span>
           </h1>
-          <p className="text-xl text-gray-300 animate-fade-in delay-200">
+          <p className="text-xl text-theme-text-secondary animate-fade-in delay-200">
             Professional experience and learning journey
           </p>
         </div>
@@ -60,14 +60,14 @@ const Internships = () => {
           {internships.map((internship, index) => (
             <div
               key={internship.company}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 animate-fade-in"
+              className="bg-theme-surface backdrop-blur-md rounded-xl p-8 border border-theme-border hover:border-theme-border-hover transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${(index + 1) * 200}ms` }}
             >
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white mb-2">{internship.position}</h2>
-                <h3 className="text-xl text-purple-400 mb-4">{internship.company}</h3>
+                <h2 className="text-2xl font-bold text-theme-text-primary mb-2">{internship.position}</h2>
+                <h3 className="text-xl text-theme-primary-start mb-4">{internship.company}</h3>
                 
-                <div className="flex flex-wrap gap-4 text-gray-300 mb-4">
+                <div className="flex flex-wrap gap-4 text-theme-text-secondary mb-4">
                   <div className="flex items-center gap-2">
                     <Calendar size={16} />
                     <span>{internship.duration}</span>
@@ -79,14 +79,14 @@ const Internships = () => {
                 </div>
               </div>
 
-              <p className="text-gray-300 mb-6 leading-relaxed">{internship.description}</p>
+              <p className="text-theme-text-secondary mb-6 leading-relaxed">{internship.description}</p>
 
               <div>
-                <h4 className="text-lg font-semibold text-purple-400 mb-3">Key Achievements:</h4>
+                <h4 className="text-lg font-semibold text-theme-primary-start mb-3">Key Achievements:</h4>
                 <ul className="space-y-2">
                   {internship.achievements.map((achievement, achievementIndex) => (
-                    <li key={achievementIndex} className="flex items-start gap-3 text-gray-300">
-                      <span className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
+                    <li key={achievementIndex} className="flex items-start gap-3 text-theme-text-secondary">
+                      <span className="w-2 h-2 bg-theme-primary-start rounded-full mt-2 flex-shrink-0"></span>
                       {achievement}
                     </li>
                   ))}
