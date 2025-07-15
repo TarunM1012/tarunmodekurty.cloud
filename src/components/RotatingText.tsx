@@ -26,14 +26,14 @@ const RotatingText = () => {
   }, [titles.length]);
 
   return (
-    <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in delay-200">
-      <span className="text-white font-semibold">Tarun Modekurty:</span>{" "}
+    <p className="text-xl md:text-2xl text-theme-text-secondary mb-8 animate-fade-in delay-200">
+      <span className="text-theme-text-primary font-semibold">Tarun Modekurty:</span>{" "}
       <span 
         className={`inline-block transition-all duration-600 ${
           isVisible 
             ? 'opacity-100 transform translate-y-0' 
             : 'opacity-0 transform -translate-y-2'
-        } bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-medium`}
+        } bg-gradient-to-r from-theme-primary-start to-theme-primary-end bg-clip-text text-transparent font-medium`}
       >
         {titles[currentIndex]}
       </span>
