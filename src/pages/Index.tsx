@@ -1,6 +1,7 @@
 
 import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
+import RotatingText from "@/components/RotatingText";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -18,9 +19,7 @@ const Index = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in delay-200">
-            AI and Software Engineer
-          </p>
+          <RotatingText />
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in delay-400">
             <Link 
