@@ -1,6 +1,7 @@
 
 import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -18,13 +19,16 @@ const Index = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in delay-200">
-            I'm a passionate developer creating amazing digital experiences
+            AI and Software Engineer
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in delay-400">
-            <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-purple-500/25">
+            <Link 
+              to="/projects"
+              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-purple-500/25 text-center"
+            >
               View My Work
-            </button>
+            </Link>
             <button className="px-8 py-3 border-2 border-purple-500 text-purple-300 font-semibold rounded-lg hover:bg-purple-500/10 transition-all duration-300">
               Download Resume
             </button>

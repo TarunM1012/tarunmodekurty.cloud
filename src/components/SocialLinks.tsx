@@ -1,5 +1,5 @@
 
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 const SocialLinks = () => {
   return (
@@ -31,6 +31,36 @@ const SocialLinks = () => {
           className="text-gray-300 group-hover:text-white transition-colors duration-300" 
         />
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"></div>
+        <div className="absolute inset-0 rounded-full bg-white/5 group-hover:bg-white/10 transition-all duration-300"></div>
+      </a>
+
+      {/* Email Link */}
+      <a
+        href="mailto:tarunm1012@gmail.com" // Replace with your actual email
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
+      >
+        <Mail 
+          size={24} 
+          className="text-gray-300 group-hover:text-white transition-colors duration-300" 
+        />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"></div>
+        <div className="absolute inset-0 rounded-full bg-white/5 group-hover:bg-white/10 transition-all duration-300"></div>
+      </a>
+
+      {/* Twitter Link */}
+      <a
+        href="https://x.com/tarunmodekurty" // Replace with your actual Twitter URL
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
+      >
+        <Twitter 
+          size={24} 
+          className="text-gray-300 group-hover:text-white transition-colors duration-300" 
+        />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"></div>
         <div className="absolute inset-0 rounded-full bg-white/5 group-hover:bg-white/10 transition-all duration-300"></div>
       </a>
     </div>
