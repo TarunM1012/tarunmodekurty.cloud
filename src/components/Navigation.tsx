@@ -28,7 +28,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-8">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <Link
@@ -44,6 +44,20 @@ const Navigation = () => {
                 </Link>
               ))}
             </div>
+            
+            {/* Blaze Button */}
+            <a
+              href="https://blazefounder.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-md text-sm font-bold transition-all duration-300 border border-[#e73900] text-[#e73900] hover:text-white hover:bg-[#e73900] shadow-sm hover:shadow-lg"
+              style={{
+                textShadow: 'none',
+                fontWeight: '700'
+              }}
+            >
+              Blaze
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -75,6 +89,21 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Blaze Button */}
+              <a
+                href="https://blazefounder.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2 mt-3 rounded-md text-base font-bold transition-all duration-300 border border-[#e73900] text-[#e73900] hover:text-white hover:bg-[#e73900] text-center"
+                style={{
+                  textShadow: 'none',
+                  fontWeight: '700'
+                }}
+              >
+                Blaze
+              </a>
             </div>
           </div>
         )}
