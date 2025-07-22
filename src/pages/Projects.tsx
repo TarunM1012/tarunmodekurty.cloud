@@ -30,6 +30,13 @@ const Projects = () => {
      liveUrl: "https://prayo-ai.vercel.app/",
       githubUrl: "https://github.com/TarunM1012/Prayo-AI",
     },
+    {
+      title: "Twee/X generator",
+      description: "An AI powered tweet generator that can generate tweets based on a given prompt and some given settings like tone and length. It uses the OpenAI API to generate the tweets.",
+      technologies: ["Open AI API","Netlify"],
+     liveUrl: "twitter-xbot.netlify.app",
+      githubUrl: "https://github.com/TarunM1012/",
+    },
   ];
 
   return (
