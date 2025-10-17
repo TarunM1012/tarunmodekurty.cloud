@@ -16,7 +16,6 @@ const Internships = () => {
         "Fine-tuned domain-specific LLMs on AWS SageMaker with supervised fine-tuning, configuring IAM roles and S3 pipelines for secure training and deployment.",
         "Cleaned and preprocessed large conversational datasets to ensure quality, consistency, and trainability, resulting in more robust fine-tuned models.",
         "Integrated Cialdini’s influence principles into AI responses, enhancing persuasion and sales-oriented conversations that converted 25% of objections into sales.",
-        "Fine-tuned domain-specific LLMs on AWS SageMaker with supervised fine-tuning, configuring IAM roles and S3 pipelines for secure training and deployment.",
       ],
     },
     {
