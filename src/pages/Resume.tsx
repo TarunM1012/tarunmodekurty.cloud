@@ -50,7 +50,7 @@ const Resume = () => {
             <section>
               <h2 className="text-2xl font-bold text-theme-primary-start mb-4">Technical Skills</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {["JavaScript", "Python", "Langchain", "OpenAI API", "RAG", "Vector Databases", "Git"].map((skill) => (
+                {["JavaScript", "Python", "Langchain","PyTorch", "AWS SageMaker", "OpenAI API", "RAG", "Vector Databases", "Git"].map((skill) => (
                   <div key={skill} className="bg-theme-surface rounded-lg p-3 text-center text-theme-text-secondary hover:bg-theme-surface-hover transition-colors">
                     {skill}
                   </div>
@@ -62,7 +62,7 @@ const Resume = () => {
             <section>
               <h2 className="text-2xl font-bold text-theme-primary-start mb-4">Education</h2>
               <div className="bg-theme-surface rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-theme-text-primary">Your Degree</h3>
+                <h3 className="text-lg font-semibold text-theme-text-primary">B.Eng Software Engineering, IoT Specialization</h3>
                 <p className="text-theme-primary-start">Ontario Tech University</p>
                 <p className="text-theme-text-muted">2023 - Current</p>
               </div>
