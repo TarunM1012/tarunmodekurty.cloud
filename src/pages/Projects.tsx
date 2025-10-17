@@ -24,13 +24,6 @@ const Projects = () => {
       githubUrl: "https://github.com/TarunM1012/AI-stock-report-generator",
     },
     {
-      title: "Prayo AI",
-      description: "A conversational agentic AI that can create roadmaps and learning paths to learn a specific skill. Also creates notion pages, and adapts around a user's busy schedule to create learning times in calender based on the user's preference.",
-      technologies: ["Open AI API", "Langchain", "Google Calendar API", "Notion API","Streamlit"],
-     liveUrl: "https://prayo-ai.vercel.app/",
-      githubUrl: "https://github.com/TarunM1012/Prayo-AI",
-    },
-    {
       title: "Tweet/X Tweet Generator",
       description: "An AI powered tweet generator that can generate tweets based on a given prompt and some given settings like tone and length. It uses the OpenAI API to generate the tweets.",
       technologies: ["Open AI API","Netlify"],
