@@ -31,12 +31,19 @@ const Projects = () => {
       githubUrl: "https://github.com/TarunM1012/Prayo-AI",
     },
     {
-      title: "Twee/X generator",
+      title: "Tweet/X Tweet Generator",
       description: "An AI powered tweet generator that can generate tweets based on a given prompt and some given settings like tone and length. It uses the OpenAI API to generate the tweets.",
       technologies: ["Open AI API","Netlify"],
      liveUrl: "https://twitter-xbot.netlify.app",
-      githubUrl: "https://github.com/TarunM1012/",
+      githubUrl: "https://github.com/TarunM1012/x-bot",
     },
+    {
+      title: "Handwritten Digit Classifier",
+      description: "AA simple but fully functional neural network trained to recognize handwritten digits (0–9) using the MNIST dataset.Built from scratch with PyTorch, this project covers data preprocessing, model design, training, and evaluation — all implemented manually for clarity.",
+      technologies: ["PyTorch","Python","Jupyter Notebook","MNIST Dataset"],
+      githubUrl: "https://github.com/TarunM1012/handwritten-digit-classifier",
+    },
+
   ];
 
   return (
