@@ -5,36 +5,42 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "CodeGuard - Multi-Model Code Review System",
+      description: "Ensemble AI system using DeepSeek Coder, CodeLlama, and Qwen for pull request analysis through consensus detection. Achieved 100% bug detection on security test cases by implementing semantic similarity matching (vs 14% with keyword matching). Runs locally via Ollama with GitHub webhook integration.",
+      technologies: ["Python", "FastAPI", "Sentence Transformers", "Ollama", "GitHub API"],
+      githubUrl: "https://github.com/TarunM1012/codeguard",
+    },
+    {
+      title: "AI Stock Report Generator",
+      description: "Production web application that generates AI-powered stock analysis and trading recommendations using real-time market data. Integrates Polygon API for financial data and OpenAI for natural language generation. Deployed on Vercel.",
+      technologies: ["OpenAI API", "JavaScript", "Vercel", "Polygon API"],
+      liveUrl: "https://ai-stock-report-generator.vercel.app/",
+      githubUrl: "https://github.com/TarunM1012/AI-stock-report-generator",
+    },
+    {
+      title: "Handwritten Digit Classifier",
+      description: "Neural network trained to recognize handwritten digits using the MNIST dataset. Built from scratch with PyTorch, covering data preprocessing, model design, training, and evaluation.",
+      technologies: ["PyTorch", "Python", "Jupyter Notebook", "MNIST Dataset"],
+      githubUrl: "https://github.com/TarunM1012/handwritten-digit-classifier",
+    },
+    {
+      title: "Tweet/X Tweet Generator",
+      description: "AI-powered tweet generator that creates tweets based on prompts with customizable tone and length settings using OpenAI API.",
+      technologies: ["OpenAI API", "Netlify"],
+      liveUrl: "https://twitter-xbot.netlify.app",
+      githubUrl: "https://github.com/TarunM1012/x-bot",
+    },
+    {
       title: "Airline Reservation System",
-      description: "Python-based implementation of an airline reservation system that models flight routes as a graph and uses advanced data structures and algorithms to find the shortest path between cities and manage seat bookings efficiently.",
+      description: "Python-based airline reservation system modeling flight routes as graphs, using Dijkstra's algorithm to find shortest paths between cities and manage seat bookings.",
       technologies: ["Python", "Graphs", "Heaps", "Dijkstra's Algorithm"],
       githubUrl: "https://github.com/TarunM1012/Airline-Reservation",
     },
     {
-      title: "Tic Tac Toe - An OOP Approach",
-      description: "This is a JavaFX-based Tic Tac Toe game developed using Object-Oriented Programming (OOP) principles to ensure modularity, scalability, and readability. The game features both two-player mode and single-player mode where players can challenge an AI opponent powered by the Minimax algorithm, ensuring optimal moves and a challenging gameplay experience.",
+      title: "Tic Tac Toe - OOP Implementation",
+      description: "JavaFX-based Tic Tac Toe game with two-player and single-player modes. AI opponent uses Minimax algorithm for optimal move selection.",
       technologies: ["Java", "OOP", "Minimax Algorithm"],
       githubUrl: "https://github.com/TarunM1012/TicTacToe-OOP",
-    },
-    {
-      title: "AI Stock Report Generator",
-      description: "An AI-powered stock analysis tool that generates trading recommendations based on stock data. Programmed to experiment with OpenAI APIs. Configured to generate over the top stock reports with data from past 3 days.",
-      technologies: ["Open AI API", "Javascript", "Vercel", "Polygon API"],
-     liveUrl: "https://ai-stock-report-generator.vercel.app/",
-      githubUrl: "https://github.com/TarunM1012/AI-stock-report-generator",
-    },
-    {
-      title: "Tweet/X Tweet Generator",
-      description: "An AI powered tweet generator that can generate tweets based on a given prompt and some given settings like tone and length. It uses the OpenAI API to generate the tweets.",
-      technologies: ["Open AI API","Netlify"],
-     liveUrl: "https://twitter-xbot.netlify.app",
-      githubUrl: "https://github.com/TarunM1012/x-bot",
-    },
-    {
-      title: "Handwritten Digit Classifier",
-      description: "AA simple but fully functional neural network trained to recognize handwritten digits (0–9) using the MNIST dataset.Built from scratch with PyTorch, this project covers data preprocessing, model design, training, and evaluation — all implemented manually for clarity.",
-      technologies: ["PyTorch","Python","Jupyter Notebook","MNIST Dataset"],
-      githubUrl: "https://github.com/TarunM1012/handwritten-digit-classifier",
     },
 
   ];

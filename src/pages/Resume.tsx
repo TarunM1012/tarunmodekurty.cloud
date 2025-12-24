@@ -41,20 +41,73 @@ const Resume = () => {
             <section>
               <h2 className="text-2xl font-bold text-theme-primary-start mb-4">Professional Summary</h2>
               <p className="text-theme-text-secondary leading-relaxed">
-                Passionate and driven software developer with expertise in modern web technologies. 
-                Experienced in building scalable applications and working in collaborative environments.
+                3rd-year Software Engineering student building AI-powered production systems. Processed 7M+ lines of data and built RAG pipelines at Second Brain Labs, shipped full-stack product to 50+ users. Seeking 4-12 month co-op starting May 2026.
               </p>
             </section>
 
             {/* Skills */}
             <section>
-              <h2 className="text-2xl font-bold text-theme-primary-start mb-4">Technical Skills</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {["JavaScript", "Python", "Langchain","PyTorch", "AWS SageMaker", "OpenAI API", "RAG", "Vector Databases", "Git"].map((skill) => (
-                  <div key={skill} className="bg-theme-surface rounded-lg p-3 text-center text-theme-text-secondary hover:bg-theme-surface-hover transition-colors">
-                    {skill}
+              <h2 className="text-2xl font-bold text-theme-primary-start mb-6">Technical Skills</h2>
+              <div className="space-y-6">
+                {/* Languages */}
+                <div>
+                  <h3 className="text-lg font-semibold text-theme-text-primary mb-3">Languages</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["Python", "JavaScript", "Bash", "SQL"].map((skill) => (
+                      <span key={skill} className="px-3 py-1.5 bg-theme-surface rounded-lg text-theme-text-secondary text-sm hover:bg-theme-surface-hover transition-colors border border-theme-border">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* AI/ML */}
+                <div>
+                  <h3 className="text-lg font-semibold text-theme-text-primary mb-3">AI/ML</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["PyTorch", "LangGraph", "RAG Pipelines", "Prompt Engineering", "Fine-tuning", "OpenAI API", "Gemini API", "Sentence Transformers", "Pinecone", "NumPy", "Pandas", "scikit-learn", "Ollama"].map((skill) => (
+                      <span key={skill} className="px-3 py-1.5 bg-theme-surface rounded-lg text-theme-text-secondary text-sm hover:bg-theme-surface-hover transition-colors border border-theme-border">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Web/Backend */}
+                <div>
+                  <h3 className="text-lg font-semibold text-theme-text-primary mb-3">Web/Backend</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["Node.js", "React", "Supabase", "PostgreSQL", "REST APIs", "API Development", "Github API", "FAST APIs"].map((skill) => (
+                      <span key={skill} className="px-3 py-1.5 bg-theme-surface rounded-lg text-theme-text-secondary text-sm hover:bg-theme-surface-hover transition-colors border border-theme-border">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Cloud/DevOps */}
+                <div>
+                  <h3 className="text-lg font-semibold text-theme-text-primary mb-3">Cloud/DevOps</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["AWS (SageMaker, S3, IAM)", "Vercel", "Netlify", "Git", "GitHub", "Linux"].map((skill) => (
+                      <span key={skill} className="px-3 py-1.5 bg-theme-surface rounded-lg text-theme-text-secondary text-sm hover:bg-theme-surface-hover transition-colors border border-theme-border">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tools */}
+                <div>
+                  <h3 className="text-lg font-semibold text-theme-text-primary mb-3">Tools</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["Jupyter Notebook", "Cursor"].map((skill) => (
+                      <span key={skill} className="px-3 py-1.5 bg-theme-surface rounded-lg text-theme-text-secondary text-sm hover:bg-theme-surface-hover transition-colors border border-theme-border">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
 

@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const SocialLinks = () => {
   return (
@@ -36,7 +36,7 @@ const SocialLinks = () => {
 
       {/* Email Link */}
       <a
-        href="mailto:tarunm1012@gmail.com"
+        href="mailto:m.tarun1012@gmail.com"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative p-3 rounded-full bg-theme-surface backdrop-blur-sm border border-theme-border hover:border-theme-border-hover transition-all duration-300 hover:scale-110"
@@ -49,20 +49,6 @@ const SocialLinks = () => {
         <div className="absolute inset-0 rounded-full bg-theme-surface group-hover:bg-theme-surface-hover transition-all duration-300"></div>
       </a>
 
-      {/* Twitter Link */}
-      <a
-        href="https://x.com/tarunmodekurty"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative p-3 rounded-full bg-theme-surface backdrop-blur-sm border border-theme-border hover:border-theme-border-hover transition-all duration-300 hover:scale-110"
-      >
-        <Twitter 
-          size={24} 
-          className="text-theme-text-muted group-hover:text-theme-text-primary transition-colors duration-300" 
-        />
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-start to-theme-primary-end opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"></div>
-        <div className="absolute inset-0 rounded-full bg-theme-surface group-hover:bg-theme-surface-hover transition-all duration-300"></div>
-      </a>
     </div>
   );
 };

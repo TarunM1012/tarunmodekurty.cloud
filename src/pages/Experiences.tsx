@@ -3,19 +3,32 @@ import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
 import { Calendar, MapPin } from "lucide-react";
 
-const Internships = () => {
-  const internships = [
+const Experiences = () => {
+  const experiences = [
     {
+        company: "Blaze Platform",
+        position: "CTO",
+        duration: "November 2024 - September 2025",
+        description: "Developed and maintained the Blaze Platform, a platform for creating and managing AI-powered sales tools. The platform allows users to create and manage AI-powered sales tools, and to use the tools to sell products and services.",
+        achievements: [
+          "Built full-stack platform connecting startup founders with co-founders and resources, supporting 50+ registered users with real-time matching and messaging.",
+          "Implemented algorithmic matching with multi-factor filtering (skills, location, interests) and in-app messaging system using Supabase real-time subscriptions.",
+          "Developed tiered subscription system with Stripe integration for premium features (unlimited connections, advanced filters), including payment processing and access controls.",
+          "Architected PostgreSQL database schema, REST APIs, and authentication flow using React, Node.js, and Supabase, deployed on Netlify.",
+
+        ],
+      },{
       company: "Second Brain Labs",
       position: "Generative AI Engineering Intern",
-      duration: "May 2025 - Current",
+      duration: "May 2025 - October 2025",
       location: "Remote",
       description: "",
       achievements: [
-        "Built a persuasion-driven RAG pipeline using vector databases and Sentence Transformers to improve conversational quality, reducing hallucinations by 30%.",
-        "Fine-tuned domain-specific LLMs on AWS SageMaker with supervised fine-tuning, configuring IAM roles and S3 pipelines for secure training and deployment.",
-        "Cleaned and preprocessed large conversational datasets to ensure quality, consistency, and trainability, resulting in more robust fine-tuned models.",
-        "Integrated Cialdini’s influence principles into AI responses, enhancing persuasion and sales-oriented conversations that converted 25% of objections into sales.",
+        "Engineered RAG-powered sales objection handling system processing 75,000+ conversations, classifying successful vs. unsuccessful interactions to extract proven conversion patterns",
+        "Built semantic matching pipeline using Sentence Transformers and Pinecone, mapping customer objections to 1,800+ curated objection-response pairs across 6 Cialdini persuasion principles ",
+        "Designed hybrid response generation combining retrieved responses with LLM APIs (OpenAI/Gemini/Claude) to deliver context-aware rebuttals for common objections",
+        "Preprocessed 7M+ lines of conversational data, building automated classification and extraction pipelines to identify high-quality objection-response training pairs",
+        "Fine-tuned domain-specific LLMs on AWS SageMaker, configuring IAM roles and S3 data pipelines for secure model training and deployment",
       ],
     },
     {
@@ -50,7 +63,7 @@ const Internships = () => {
       <div className="pt-24 px-4 max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-theme-text-primary mb-6 animate-fade-in">
-            My <span className="bg-gradient-to-r from-theme-primary-start to-theme-primary-end bg-clip-text text-transparent">Internships</span>
+            My <span className="bg-gradient-to-r from-theme-primary-start to-theme-primary-end bg-clip-text text-transparent">Experiences</span>
           </h1>
           <p className="text-xl text-theme-text-secondary animate-fade-in delay-200">
             Professional experience and learning journey
@@ -58,34 +71,34 @@ const Internships = () => {
         </div>
 
         <div className="space-y-8">
-          {internships.map((internship, index) => (
+          {experiences.map((experience, index) => (
             <div
-              key={internship.company}
+              key={experience.company}
               className="bg-theme-surface backdrop-blur-md rounded-xl p-8 border border-theme-border hover:border-theme-border-hover transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${(index + 1) * 200}ms` }}
             >
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-theme-text-primary mb-2">{internship.position}</h2>
-                <h3 className="text-xl text-theme-primary-start mb-4">{internship.company}</h3>
+                <h2 className="text-2xl font-bold text-theme-text-primary mb-2">{experience.position}</h2>
+                <h3 className="text-xl text-theme-primary-start mb-4">{experience.company}</h3>
                 
                 <div className="flex flex-wrap gap-4 text-theme-text-secondary mb-4">
                   <div className="flex items-center gap-2">
                     <Calendar size={16} />
-                    <span>{internship.duration}</span>
+                    <span>{experience.duration}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin size={16} />
-                    <span>{internship.location}</span>
+                    <span>{experience.location}</span>
                   </div>
                 </div>
               </div>
 
-              <p className="text-theme-text-secondary mb-6 leading-relaxed">{internship.description}</p>
+              <p className="text-theme-text-secondary mb-6 leading-relaxed">{experience.description}</p>
 
               <div>
                 <h4 className="text-lg font-semibold text-theme-primary-start mb-3">Key Achievements:</h4>
                 <ul className="space-y-2">
-                  {internship.achievements.map((achievement, achievementIndex) => (
+                  {experience.achievements.map((achievement, achievementIndex) => (
                     <li key={achievementIndex} className="flex items-start gap-3 text-theme-text-secondary">
                       <span className="w-2 h-2 bg-theme-primary-start rounded-full mt-2 flex-shrink-0"></span>
                       {achievement}
@@ -106,4 +119,5 @@ const Internships = () => {
   );
 };
 
-export default Internships;
+export default Experiences;
+

@@ -11,7 +11,7 @@ const Navigation = () => {
     { name: "Home", path: "/" },
     { name: "Resume", path: "/resume" },
     { name: "Projects", path: "/projects" },
-    { name: "Internships", path: "/internships" },
+    { name: "Experiences", path: "/experiences" },
   ];
 
   const isActive = (path: string) => {
