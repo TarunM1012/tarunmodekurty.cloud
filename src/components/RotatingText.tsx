@@ -1,51 +1,35 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-const RotatingText = () => {
-  const titles = [
-    "AI Engineer",
-    "Software Engineer", 
-    "Photographer",
-    "Startup Founder"
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+/** Cycles through phrases with a vertical slide. */
+const RotatingText = ({ items, interval = 2800 }: { items: string[]; interval?: number }) => {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
-        setIsVisible(true);
-      }, 300); // Half of transition duration for smooth effect
-      
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(interval);
-  }, [titles.length]);
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), interval);
+    return () => clearInterval(id);
+  }, [items.length, interval]);
 
   return (
-    <p className="text-xl md:text-2xl text-theme-text-secondary mb-8 animate-fade-in delay-200">
-      <span className="text-theme-text-primary font-semibold">Tarun Modekurty:</span>{" "}
-      <span className="inline-block relative">
-        <span 
-          className={`absolute transition-all duration-600 ${
-            isVisible 
-              ? 'opacity-100 transform translate-y-0' 
-              : 'opacity-0 transform -translate-y-2'
-          } bg-gradient-to-r from-theme-primary-start to-theme-primary-end bg-clip-text text-transparent font-medium`}
-        >
-          {titles[currentIndex]}
-        </span>
-        <span className="invisible font-medium">
-          {titles.reduce((longest, current) => 
-            current.length > longest.length ? current : longest
-          )}
-        </span>
+    <span className="relative inline-grid overflow-hidden align-bottom">
+      {/* Reserve the width of the longest phrase so the line never jumps */}
+      <span className="invisible col-start-1 row-start-1" aria-hidden="true">
+        {items.reduce((a, b) => (b.length > a.length ? b : a))}
       </span>
-    </p>
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={index}
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          exit={{ y: "-100%", opacity: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="col-start-1 row-start-1 text-foreground"
+        >
+          {items[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
   );
 };
 
-export default RotatingText; 
+export default RotatingText;

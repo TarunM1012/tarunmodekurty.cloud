@@ -64,23 +64,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				/* Custom Portfolio Theme Colors */
-				theme: {
-					'bg-start': 'hsl(var(--theme-background-start))',
-					'bg-via': 'hsl(var(--theme-background-via))',
-					'bg-end': 'hsl(var(--theme-background-end))',
-					'primary-start': 'hsl(var(--theme-primary-start))',
-					'primary-end': 'hsl(var(--theme-primary-end))',
-					'secondary-start': 'hsl(var(--theme-secondary-start))',
-					'secondary-end': 'hsl(var(--theme-secondary-end))',
-					'text-primary': 'hsl(var(--theme-text-primary))',
-					'text-secondary': 'hsl(var(--theme-text-secondary))',
-					'text-muted': 'hsl(var(--theme-text-muted))',
-					'surface': 'hsl(var(--theme-surface))',
-					'surface-hover': 'hsl(var(--theme-surface-hover))',
-					'border': 'hsl(var(--theme-border))',
-					'border-hover': 'hsl(var(--theme-border-hover))'
-				}
+				cyan: 'hsl(var(--cyan) / <alpha-value>)',
+				violet: 'hsl(var(--violet) / <alpha-value>)',
+				amber: 'hsl(var(--amber) / <alpha-value>)'
+			},
+			fontFamily: {
+				sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+				mono: ['"Geist Mono"', 'ui-monospace', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -104,6 +94,17 @@ export default {
 						height: '0'
 					}
 				},
+				shimmer: {
+					to: { backgroundPosition: '200% center' }
+				},
+				float: {
+					'0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+					'50%': { transform: 'translate3d(30px, -40px, 0) scale(1.08)' }
+				},
+				'pulse-dot': {
+					'0%': { boxShadow: '0 0 0 0 hsl(var(--cyan) / 0.6)' },
+					'100%': { boxShadow: '0 0 0 10px hsl(var(--cyan) / 0)' }
+				},
 				'fade-in': {
 					'0%': {
 						opacity: '0',
@@ -118,7 +119,10 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out forwards'
+				'fade-in': 'fade-in 0.6s ease-out forwards',
+				shimmer: 'shimmer 8s linear infinite',
+				float: 'float 18s ease-in-out infinite',
+				'pulse-dot': 'pulse-dot 1.8s ease-out infinite'
 			}
 		}
 	},
