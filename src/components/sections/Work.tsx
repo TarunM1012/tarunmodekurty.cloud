@@ -18,32 +18,23 @@ const diagramFor = (d: CaseStudy["diagram"]) =>
 const Study = ({ s }: { s: CaseStudy }) => (
   <article id={s.id} className="border-t border-rule pt-10 first:border-t-0 first:pt-0">
     <Reveal>
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <p className="font-mono text-xs text-graphite">
-          {s.index} · {s.org}
-        </p>
-        <p className="font-mono text-xs text-graphite">{s.year}</p>
-      </div>
-      <h3 className="mt-3 font-serif text-3xl font-light tracking-[-0.01em] md:text-4xl">{s.title}</h3>
-      <p className="mt-3 max-w-2xl text-lg text-graphite">{s.summary}</p>
-    </Reveal>
-
-    <Reveal delay={0.05}>
-      <dl
-        className={`mt-8 grid grid-cols-2 gap-px border border-rule bg-rule [&>*:last-child:nth-child(odd)]:col-span-2 sm:[&>*:last-child:nth-child(odd)]:col-span-1 ${
-          s.metrics.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4"
-        }`}
-      >
-        {s.metrics.map((m) => (
-          <div key={m.label} className="bg-paper px-4 py-4">
-            <dt className="sr-only">{m.label}</dt>
-            <dd>
-              <span className="block font-serif text-3xl font-light tracking-tight">{m.value}</span>
-              <span className="mt-1 block text-xs text-graphite">{m.label}</span>
-            </dd>
-          </div>
+      <p className="font-mono text-xs text-graphite">
+        {s.org} · {s.year}
+      </p>
+      <h3 className="mt-3 max-w-2xl text-balance font-serif text-3xl font-light tracking-[-0.01em] md:text-4xl">{s.title}</h3>
+      <div className="mt-6 max-w-2xl space-y-4 text-[17px] leading-relaxed text-graphite">
+        {s.story.map((para) => (
+          <p key={para.slice(0, 24)}>{para}</p>
         ))}
-      </dl>
+      </div>
+      <p className="mt-6 flex flex-wrap gap-x-2 gap-y-1 font-mono text-xs text-ink">
+        {s.numbers.map((n, i) => (
+          <span key={n}>
+            {i > 0 && <span className="mr-2 text-graphite">·</span>}
+            {n}
+          </span>
+        ))}
+      </p>
     </Reveal>
 
     <Reveal delay={0.05} className="mt-8">
@@ -51,19 +42,7 @@ const Study = ({ s }: { s: CaseStudy }) => (
     </Reveal>
 
     <Reveal delay={0.05}>
-      <div className="mt-10 grid gap-8 md:grid-cols-3">
-        {[
-          ["The problem", s.problem],
-          ["What I did", s.approach],
-          ["What happened", s.outcome],
-        ].map(([k, v]) => (
-          <div key={k}>
-            <p className="label text-ink">{k}</p>
-            <p className="mt-3 text-[15px] leading-relaxed text-graphite">{v}</p>
-          </div>
-        ))}
-      </div>
-      <p className="mt-8 font-mono text-xs text-graphite">{s.stack.join("  ·  ")}</p>
+      <p className="mt-6 font-mono text-xs text-graphite">Built with {s.stack.join(", ")}</p>
     </Reveal>
   </article>
 );

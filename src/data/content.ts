@@ -9,10 +9,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/tarun-modekurty/",
   resumeUrl: "/Tarun_Modekurty_Resume.pdf",
   photo: "/tarun.jpg",
-  now: "Submitting my zero-shot compositional action recognition (ZS-CAR) paper to CVPR.",
-  headline: "I build machine learning that holds up on the factory floor.",
+  now: "Writing up my zero-shot compositional action recognition (ZS-CAR) paper, aiming for a CVPR submission.",
   intro:
-    "Software engineering co-op student at Ontario Tech. At Multimatic I turn raw plant data into tools for the production floor; in the Visual Computing Lab I research video models that recognize actions they have never seen. I earned a welding certification to understand the welds my models judge.",
+    "I’m a software engineering student at Ontario Tech, and I like machine learning best once it leaves the notebook. These days that means teaching welding robots at Multimatic to flag bad welds before anyone has to look, and finishing a paper on video models that recognize actions they’ve never seen. I even trained as a welder, so I’d understand the welds my models judge.",
 };
 
 export const current = [
@@ -20,91 +19,54 @@ export const current = [
   { org: "Visual Computing Lab, Ontario Tech", role: "Research Assistant, Computer Vision" },
 ];
 
-export const results = [
-  { value: "3.75M", label: "production welds covered by a weld-quality early-warning system I built" },
-  { value: "70%", label: "of weld defects caught before visual inspection, with minimal false alarms" },
-  { value: "+3.1", label: "points over the published state of the art in zero-shot action recognition" },
-  { value: "1st", label: "of 15 teams, Cognitive Innovation Competition, for GridSens" },
-];
-
 export type CaseStudy = {
   id: string;
-  index: string;
   title: string;
   org: string;
   year: string;
-  summary: string;
-  problem: string;
-  approach: string;
-  outcome: string;
-  metrics: { value: string; label: string }[];
+  story: string[];
+  numbers: string[];
   stack: string[];
   diagram: "weld" | "zeroshot" | "grid";
-  link?: { href: string; label: string };
 };
 
 export const caseStudies: CaseStudy[] = [
   {
     id: "weld-early-warning",
-    index: "01",
-    title: "Weld-quality early warning",
+    title: "Teaching welding robots to flag their own bad welds",
     org: "Multimatic Dynamic Suspensions",
     year: "2026",
-    summary: "From a SCADA analysis brief to a system, now being evaluated by operators, that ranks which parts to inspect first.",
-    problem:
-      "Eight FANUC welding robots produce millions of welds. Defects were found by visual inspection after the fact, with no way to know which parts to check first.",
-    approach:
-      "Built a real-time MQTT pipeline on an air-gapped plant network to stream current and voltage waveforms. Showed that high-frequency waveform features reveal defects before inspection, and trained a defect-risk model on 984 labels hand-corrected with weld process engineers.",
-    outcome:
-      "A daily “inspect these 30 first” list, now being evaluated by operators each shift, and a live telemetry dashboard the team uses daily. Covers 3.75M production welds.",
-    metrics: [
-      { value: "3.75M", label: "welds" },
-      { value: "70%", label: "catch rate" },
-      { value: "0.81", label: "AUC" },
-      { value: "8", label: "robots" },
+    story: [
+      "I was hired to analyze SCADA data. Digging through it, I noticed something: the high-frequency current and voltage waveforms from our eight FANUC welding robots showed defects before visual inspection ever did.",
+      "So I built a real-time MQTT pipeline on the plant’s air-gapped network, sat down with the weld process engineers to hand-correct 984 labels, and trained a defect-risk model on top. It now produces a daily “inspect these 30 first” list that operators are evaluating each shift.",
     ],
+    numbers: ["3.75M welds", "70% of defects caught", "AUC 0.81", "8 robots"],
     stack: ["Python", "MQTT", "Ignition SCADA", "scikit-learn", "Time-series features", "SPC"],
     diagram: "weld",
   },
   {
     id: "zero-shot-actions",
-    index: "02",
     title: "Recognizing actions a model has never seen",
     org: "Visual Computing Lab, Ontario Tech",
     year: "2026",
-    summary: "Zero-shot compositional action recognition (ZS-CAR). Paper being submitted to CVPR.",
-    problem:
-      "Video models fail on verb–object combinations absent from training, such as “folding paper”. The published state of the art on Sth-com is RCORE.",
-    approach:
-      "Paired a frozen video expert for verbs with a frozen image expert for objects, fine-tuning no backbone. Controlled ablations, including swapping in RCORE’s own CLIP backbone, isolate the gain to the architecture. Trained on 79K videos across 3 seeds on the Narval A100 cluster.",
-    outcome:
-      "3.1 points above RCORE on Sth-com at matched backbones; the video expert nearly doubles verb accuracy on unseen actions.",
-    metrics: [
-      { value: "+3.1", label: "pts vs SOTA" },
-      { value: "64%", label: "unseen-verb acc." },
-      { value: "79K", label: "videos" },
-      { value: "3", label: "seeds" },
+    story: [
+      "Video models struggle with verb–object pairs they never saw in training, like “folding paper”. My idea was to stop asking one model to learn both: a frozen video expert handles the verb, a frozen image expert handles the object, and no backbone gets fine-tuned.",
+      "It beats RCORE, the published state of the art on Sth-com, by 3.1 points at matched backbones. I ran ablations, including swapping in RCORE’s own CLIP backbone, to make sure the gain comes from the architecture. I trained it on 79K videos across 3 seeds on the Narval A100 cluster, and I’m now writing it up, aiming for a CVPR submission.",
     ],
+    numbers: ["+3.1 pts over SOTA", "64% vs 34% unseen-verb accuracy", "79K videos"],
     stack: ["PyTorch", "CLIP", "SLURM", "A100"],
     diagram: "zeroshot",
   },
   {
     id: "gridsens",
-    index: "03",
-    title: "GridSens: early warning for grid cascades",
-    org: "Cognitive Innovation Competition · 1st of 15",
+    title: "GridSens: seeing a blackout coming",
+    org: "Cognitive Innovation Competition",
     year: "2026",
-    summary: "A graph neural network that warns of cascading power-grid failures before they happen.",
-    problem:
-      "Cascading failures spread faster than operators can react, as Texas saw in the February 2021 winter storm.",
-    approach:
-      "Trained a graph neural network on the grid’s topology to predict cascading failures, then replayed the 2021 storm in simulation on real ERCOT load data through a React and FastAPI dashboard.",
-    outcome: "Warnings 2–4 time steps before failure in the replay. First place out of 15 teams.",
-    metrics: [
-      { value: "2–4", label: "steps early" },
-      { value: "73,650", label: "MW peak load" },
-      { value: "1st", label: "of 15 teams" },
+    story: [
+      "Cascading grid failures spread faster than people can react, as Texas found out in February 2021. I built a graph neural network that warns of them 2–4 time steps before they happen.",
+      "To test it, I replayed the 2021 winter storm in simulation on real ERCOT load data, behind a React and FastAPI dashboard. It took first place out of 15 teams.",
     ],
+    numbers: ["2–4 steps of warning", "73,650 MW peak load replayed", "1st of 15 teams"],
     stack: ["Graph neural networks", "FastAPI", "React"],
     diagram: "grid",
   },
@@ -160,9 +122,8 @@ export const founder = {
 };
 
 export const recognition = [
-  { year: "2026", title: "CVPR submission, in progress", detail: "Zero-shot compositional action recognition (ZS-CAR)" },
   { year: "2026", title: "1st place of 15 teams", detail: "Cognitive Innovation Competition (GridSens)" },
-  { year: "2026", title: "Manual & robotic welding certification", detail: "Multimatic" },
+  { year: "2026", title: "Weld trained, manual & robotic", detail: "Multimatic" },
 ];
 
 export const otherWork = [
