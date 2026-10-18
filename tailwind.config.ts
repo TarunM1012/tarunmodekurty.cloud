@@ -64,23 +64,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				/* Custom Portfolio Theme Colors */
-				theme: {
-					'bg-start': 'hsl(var(--theme-background-start))',
-					'bg-via': 'hsl(var(--theme-background-via))',
-					'bg-end': 'hsl(var(--theme-background-end))',
-					'primary-start': 'hsl(var(--theme-primary-start))',
-					'primary-end': 'hsl(var(--theme-primary-end))',
-					'secondary-start': 'hsl(var(--theme-secondary-start))',
-					'secondary-end': 'hsl(var(--theme-secondary-end))',
-					'text-primary': 'hsl(var(--theme-text-primary))',
-					'text-secondary': 'hsl(var(--theme-text-secondary))',
-					'text-muted': 'hsl(var(--theme-text-muted))',
-					'surface': 'hsl(var(--theme-surface))',
-					'surface-hover': 'hsl(var(--theme-surface-hover))',
-					'border': 'hsl(var(--theme-border))',
-					'border-hover': 'hsl(var(--theme-border-hover))'
-				}
+				ink: 'hsl(var(--ink) / <alpha-value>)',
+				paper: 'hsl(var(--paper) / <alpha-value>)',
+				graphite: 'hsl(var(--graphite) / <alpha-value>)',
+				rule: 'hsl(var(--rule) / <alpha-value>)',
+				signal: 'hsl(var(--accent-ink) / <alpha-value>)'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				serif: ['Newsreader', 'Georgia', 'serif'],
+				mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

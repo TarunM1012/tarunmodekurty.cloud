@@ -1,114 +1,83 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { profile } from "@/data/content";
+import { cn } from "@/lib/utils";
+
+const links = [
+  { id: "work", name: "Work" },
+  { id: "experience", name: "Experience" },
+  { id: "about", name: "About" },
+  { id: "contact", name: "Contact" },
+];
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+  const href = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Resume", path: "/resume" },
-    { name: "Projects", path: "/projects" },
-    { name: "Experiences", path: "/experiences" },
-  ];
-
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-theme-surface backdrop-blur-md border-b border-theme-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-theme-text-primary hover:text-theme-primary-start transition-colors">
-            Portfolio
-          </Link>
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
+        scrolled || open ? "border-rule bg-paper/90 backdrop-blur" : "border-transparent bg-transparent"
+      )}
+    >
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <Link to="/" className="font-serif text-xl tracking-tight">
+          {profile.name}
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-                    isActive(item.path)
-                      ? "text-theme-primary-start bg-theme-surface-hover"
-                      : "text-theme-text-secondary hover:text-theme-text-primary hover:bg-theme-surface"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            
-            {/* Blaze Button */}
-            <a
-              href="https://blazefounder.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-md text-sm font-bold transition-all duration-300 border border-[#e73900] text-[#e73900] hover:text-white hover:bg-[#e73900] shadow-sm hover:shadow-lg"
-              style={{
-                textShadow: 'none',
-                fontWeight: '700'
-              }}
-            >
-              Blaze
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+          {links.map((l) => (
+            <a key={l.id} href={href(l.id)} className="link text-sm text-graphite transition-colors hover:text-ink">
+              {l.name}
             </a>
-          </div>
+          ))}
+          <Link
+            to="/resume"
+            className="rounded-sm border border-ink px-3.5 py-1.5 text-sm transition-colors hover:bg-ink hover:text-paper"
+          >
+            Résumé
+          </Link>
+        </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-theme-text-secondary hover:text-theme-text-primary transition-colors"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-theme-surface-hover backdrop-blur-md rounded-lg mt-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
-                    isActive(item.path)
-                      ? "text-theme-primary-start bg-theme-surface-hover"
-                      : "text-theme-text-secondary hover:text-theme-text-primary hover:bg-theme-surface"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              
-              {/* Mobile Blaze Button */}
-              <a
-                href="https://blazefounder.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 mt-3 rounded-md text-base font-bold transition-all duration-300 border border-[#e73900] text-[#e73900] hover:text-white hover:bg-[#e73900] text-center"
-                style={{
-                  textShadow: 'none',
-                  fontWeight: '700'
-                }}
-              >
-                Blaze
-              </a>
-            </div>
-          </div>
-        )}
+        <button
+          className="md:hidden"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
-    </nav>
+
+      {open && (
+        <nav className="border-t border-rule px-6 pb-6 md:hidden" aria-label="Mobile">
+          {links.map((l) => (
+            <a
+              key={l.id}
+              href={href(l.id)}
+              onClick={() => setOpen(false)}
+              className="block border-b border-rule py-4 font-serif text-2xl"
+            >
+              {l.name}
+            </a>
+          ))}
+          <Link to="/resume" onClick={() => setOpen(false)} className="mt-6 block rounded-sm bg-ink py-3 text-center text-paper">
+            Résumé
+          </Link>
+        </nav>
+      )}
+    </header>
   );
 };
 
