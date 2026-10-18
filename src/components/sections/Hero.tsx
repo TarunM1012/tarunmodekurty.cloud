@@ -39,8 +39,21 @@ const Hero = () => (
         </div>
       </motion.div>
 
-      <motion.aside {...fade(0.3)} className="md:col-span-4 md:col-start-9" aria-label="Currently">
-        <p className="label">Currently</p>
+      <motion.aside {...fade(0.3)} className="md:col-span-4 md:col-start-9" aria-label="About me right now">
+        <div className="flex items-center gap-4">
+          <img
+            src={profile.photo}
+            alt={`Portrait of ${profile.name}`}
+            width={72}
+            height={72}
+            className="h-[72px] w-[72px] rounded-full object-cover ring-1 ring-rule"
+          />
+          <div>
+            <p className="label">Now</p>
+            <p className="mt-1 text-sm leading-snug">{profile.now}</p>
+          </div>
+        </div>
+        <p className="label mt-8">Currently</p>
         <ul className="mt-4 divide-y divide-rule border-y border-rule">
           {current.map((c) => (
             <li key={c.org} className="py-4">

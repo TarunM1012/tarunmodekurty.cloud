@@ -8,6 +8,8 @@ export const profile = {
   github: "https://github.com/TarunM1012",
   linkedin: "https://www.linkedin.com/in/tarun-modekurty/",
   resumeUrl: "/Tarun_Modekurty_Resume.pdf",
+  photo: "/tarun.jpg",
+  now: "Submitting my zero-shot compositional action recognition (ZS-CAR) paper to CVPR.",
   headline: "I build machine learning that holds up on the factory floor.",
   intro:
     "Software engineering co-op student at Ontario Tech. At Multimatic I turn raw plant data into tools for the production floor; in the Visual Computing Lab I research video models that recognize actions they have never seen. I earned a welding certification to understand the welds my models judge.",
@@ -15,7 +17,7 @@ export const profile = {
 
 export const current = [
   { org: "Multimatic Dynamic Suspensions", role: "Application Engineering Co-op, ML & Industrial Data" },
-  { org: "Visual Computing Lab, Ontario Tech", role: "Research Assistant, Computer Vision. CVPR paper in preparation" },
+  { org: "Visual Computing Lab, Ontario Tech", role: "Research Assistant, Computer Vision" },
 ];
 
 export const results = [
@@ -70,7 +72,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Recognizing actions a model has never seen",
     org: "Visual Computing Lab, Ontario Tech",
     year: "2026",
-    summary: "Zero-shot compositional action recognition. Paper in preparation for CVPR.",
+    summary: "Zero-shot compositional action recognition (ZS-CAR). Paper being submitted to CVPR.",
     problem:
       "Video models fail on verb–object combinations absent from training, such as “folding paper”. The published state of the art on Sth-com is RCORE.",
     approach:
@@ -158,7 +160,7 @@ export const founder = {
 };
 
 export const recognition = [
-  { year: "2026", title: "Paper in preparation, CVPR", detail: "Zero-shot compositional action recognition" },
+  { year: "2026", title: "CVPR submission, in progress", detail: "Zero-shot compositional action recognition (ZS-CAR)" },
   { year: "2026", title: "1st place of 15 teams", detail: "Cognitive Innovation Competition (GridSens)" },
   { year: "2026", title: "Manual & robotic welding certification", detail: "Multimatic" },
 ];
