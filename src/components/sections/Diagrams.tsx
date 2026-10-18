@@ -83,7 +83,7 @@ export const ZeroShot = () => (
           </div>
         ))}
       </div>
-      <p className="mt-5 text-xs text-graphite">Ablation from the ZS-CAR paper, being submitted to CVPR.</p>
+      <p className="mt-5 text-xs text-graphite">From my ablations for the ZS-CAR paper (work in progress).</p>
     </div>
   </div>
 );
