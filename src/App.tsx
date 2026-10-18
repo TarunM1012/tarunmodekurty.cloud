@@ -20,7 +20,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/resume" element={<Resume />} />
           {/* Old multi-page URLs now point at sections of the single page */}
-          <Route path="/projects" element={<Navigate to="/#projects" replace />} />
+          <Route path="/projects" element={<Navigate to="/#work" replace />} />
           <Route path="/experiences" element={<Navigate to="/#experience" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

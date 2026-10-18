@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy, MapPin } from "lucide-react";
-import Magnetic from "@/components/fx/Magnetic";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
 import Reveal from "@/components/fx/Reveal";
-import SocialLinks from "@/components/SocialLinks";
 import { profile } from "@/data/content";
 
 const Contact = () => {
@@ -18,46 +16,50 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative mx-auto max-w-6xl px-5 pb-16 pt-28 sm:px-8">
-      <Reveal>
-        <div className="ring-gradient relative overflow-hidden rounded-[2rem] border border-white/[0.06] bg-gradient-to-br from-cyan/[0.08] via-background to-violet/[0.1] px-6 py-16 text-center sm:px-12 sm:py-24">
-          <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
-          <p className="eyebrow relative">05 · Contact</p>
-          <h2 className="relative mx-auto mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-[-0.03em] sm:text-6xl">
-            Have messy real-world data? <span className="text-gradient">Let’s make it useful.</span>
+    <section id="contact" className="mt-10 bg-ink text-paper">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <Reveal>
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper/60">Contact</p>
+          <h2 className="mt-6 max-w-3xl text-balance font-serif text-4xl font-light leading-[1.08] tracking-[-0.02em] md:text-6xl">
+            Working on sensor data, video, or ML that has to run in production? <em className="italic text-[#F0A374]">Let’s talk.</em>
           </h2>
-          <p className="relative mt-5 inline-flex items-center gap-2 text-muted-foreground">
-            <MapPin size={16} /> {profile.location}
-          </p>
-          <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Magnetic>
-              <a
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-foreground px-6 py-3.5 font-medium text-background transition-transform hover:scale-[1.03]"
-              >
-                Say hello <ArrowUpRight size={18} />
-              </a>
-            </Magnetic>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="mt-12 flex flex-wrap items-center gap-4">
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2 rounded-sm bg-paper px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-[#F0A374]"
+            >
+              Email me <ArrowUpRight size={16} />
+            </a>
             <button
               onClick={copy}
-              className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3.5 font-mono text-sm transition-colors hover:border-white/20"
+              className="inline-flex items-center gap-2 rounded-sm border border-paper/25 px-5 py-3 font-mono text-sm transition-colors hover:border-paper/60"
             >
-              {copied ? <Check size={16} className="text-cyan" /> : <Copy size={16} />}
+              {copied ? <Check size={15} /> : <Copy size={15} />}
               {copied ? "Copied" : profile.email}
             </button>
           </div>
-          <div className="relative mt-10 flex justify-center">
-            <SocialLinks />
+        </Reveal>
+
+        <div className="mt-24 flex flex-col gap-6 border-t border-paper/15 pt-8 text-sm text-paper/60 md:flex-row md:items-center md:justify-between">
+          <p>
+            © {new Date().getFullYear()} {profile.name} · {profile.location}
+          </p>
+          <div className="flex gap-6">
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="link hover:text-paper">
+              LinkedIn
+            </a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="link hover:text-paper">
+              GitHub
+            </a>
+            <a href={profile.resumeUrl} download className="link hover:text-paper">
+              Résumé (PDF)
+            </a>
           </div>
         </div>
-      </Reveal>
-
-      <footer className="mt-12 flex flex-col items-center justify-between gap-3 text-sm text-muted-foreground sm:flex-row">
-        <p>© {new Date().getFullYear()} {profile.name}</p>
-        <p className="hidden font-mono text-xs sm:block">
-          Press <kbd className="rounded border border-white/15 px-1.5 py-0.5">⌘K</kbd> to navigate
-        </p>
-      </footer>
+      </div>
     </section>
   );
 };

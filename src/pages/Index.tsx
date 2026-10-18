@@ -1,35 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import CommandMenu from "@/components/CommandMenu";
 import Hero from "@/components/sections/Hero";
-import Impact from "@/components/sections/Impact";
+import Work from "@/components/sections/Work";
 import Experience from "@/components/sections/Experience";
-import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
+import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 
 const Index = () => {
-  const [commandOpen, setCommandOpen] = useState(false);
   const { hash } = useLocation();
 
-  // Honor deep links like /#projects coming from other routes.
+  // Honor deep links like /#work coming from other routes.
   useEffect(() => {
     if (!hash) return;
-    const id = hash.slice(1);
-    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView());
+    requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView());
   }, [hash]);
 
   return (
-    <div className="relative min-h-screen overflow-x-clip">
-      <Navigation onOpenCommand={() => setCommandOpen(true)} />
-      <CommandMenu open={commandOpen} onOpenChange={setCommandOpen} />
+    <div className="min-h-screen">
+      <Navigation />
       <main>
         <Hero />
-        <Impact />
-        <Experience />
-        <Projects />
-        <Skills />
+        <div className="mt-24 md:mt-32">
+          <Work />
+          <Experience />
+          <About />
+        </div>
         <Contact />
       </main>
     </div>

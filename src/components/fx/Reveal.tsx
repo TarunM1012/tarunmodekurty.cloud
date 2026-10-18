@@ -1,14 +1,14 @@
 import { motion, type HTMLMotionProps } from "framer-motion";
 
-type RevealProps = HTMLMotionProps<"div"> & { delay?: number; y?: number };
+type RevealProps = HTMLMotionProps<"div"> & { delay?: number };
 
-/** Fades and lifts its children into place the first time they scroll into view. */
-const Reveal = ({ delay = 0, y = 24, children, ...rest }: RevealProps) => (
+/** A short, quiet fade-up the first time content scrolls into view. */
+const Reveal = ({ delay = 0, children, ...rest }: RevealProps) => (
   <motion.div
-    initial={{ opacity: 0, y, filter: "blur(6px)" }}
-    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-    viewport={{ once: true, margin: "-80px" }}
-    transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    initial={{ opacity: 0, y: 12 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
     {...rest}
   >
     {children}
