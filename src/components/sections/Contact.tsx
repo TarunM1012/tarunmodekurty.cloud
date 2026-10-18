@@ -21,7 +21,7 @@ const Contact = () => {
         <Reveal>
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper/60">Contact</p>
           <h2 className="mt-6 max-w-3xl text-balance font-serif text-4xl font-light leading-[1.08] tracking-[-0.02em] md:text-6xl">
-            Working on sensor data, video, or ML that has to run in production? <em className="italic text-[#F0A374]">Let’s talk.</em>
+            Working on something like this, or just want to talk ML? <em className="italic text-[#F0A374]">I’d love to hear from you.</em>
           </h2>
         </Reveal>
 
@@ -31,7 +31,7 @@ const Contact = () => {
               href={`mailto:${profile.email}`}
               className="inline-flex items-center gap-2 rounded-sm bg-paper px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-[#F0A374]"
             >
-              Email me <ArrowUpRight size={16} />
+              Say hello <ArrowUpRight size={16} />
             </a>
             <button
               onClick={copy}

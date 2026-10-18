@@ -53,9 +53,9 @@ const Study = ({ s }: { s: CaseStudy }) => (
     <Reveal delay={0.05}>
       <div className="mt-10 grid gap-8 md:grid-cols-3">
         {[
-          ["Problem", s.problem],
-          ["Approach", s.approach],
-          ["Outcome", s.outcome],
+          ["The problem", s.problem],
+          ["What I did", s.approach],
+          ["What happened", s.outcome],
         ].map(([k, v]) => (
           <div key={k}>
             <p className="label text-ink">{k}</p>
@@ -69,7 +69,7 @@ const Study = ({ s }: { s: CaseStudy }) => (
 );
 
 const Work = () => (
-  <Section id="work" label="Selected work" title="Three systems, from the plant floor to the research lab.">
+  <Section id="work" label="Things I’ve built" title="What I’ve been working on.">
     <div className="space-y-20">
       {caseStudies.map((s) => (
         <Study key={s.id} s={s} />
@@ -77,7 +77,7 @@ const Work = () => (
     </div>
 
     <Reveal className="mt-24">
-      <p className="label">Also built</p>
+      <p className="label">Side projects</p>
       <ul className="mt-4 divide-y divide-rule border-y border-rule">
         {otherWork.map((w) => (
           <li key={w.title}>

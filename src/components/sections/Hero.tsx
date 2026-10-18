@@ -29,7 +29,7 @@ const Hero = () => (
             href="#contact"
             className="group inline-flex items-center gap-2 rounded-sm bg-ink px-5 py-3 text-sm font-medium text-paper transition-colors hover:bg-signal"
           >
-            Get in touch
+            Say hello
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
           </a>
           <a href={profile.resumeUrl} download className="group inline-flex items-center gap-2 text-sm font-medium">
